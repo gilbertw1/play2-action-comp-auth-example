@@ -1,7 +1,3 @@
-@(message: String)
-
-@main("Welcome to Play 2.1") {
-    
-    @play20.welcome(message)
-    
+@(memberCompanies: List[Company], adminCompanies: List[Company])(implicit request: UserAuthenticatedRequest) {   
+    <h1>Viewing home page for @request.user.firstname</h1>
 }

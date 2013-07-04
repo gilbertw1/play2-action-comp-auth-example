@@ -3,7 +3,23 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index
+GET     /                                                           controllers.Application.index
+GET     /fbOAuth                                                    controllers.Application.fbOAuth
+GET     /fbOAuthReturn                                              controllers.Application.fbOAuthReturn(state: String, code: String)
+
+# Companies
+GET     /companies                                                  controllers.Companies.list
+GET     /companies/create                                           controllers.Companies.create()
+GET     /companies/:id                                              controllers.Companies.view(id: Long)
+GET     /companies/:id/update                                       controllers.Companies.update(id: Long)
+GET     /companies/:id/admin                                        controllers.Companies.admin(id: Long)
+
+# Surveys
+GET     /companies/:cid/surveys                                     controllers.Surveys.list(cid: Long)
+GET     /companies/:cid/surveys/create                              controllers.Surveys.create(cid: Long)
+GET     /companies/:cid/surveys/:id                                 controllers.Surveys.view(cid: Long, id: Long)
+GET     /companies/:cid/surveys/:id/update                          controllers.Surveys.update(cid: Long, id: Long)
+GET     /companies/:cid/surveys/:id/fillOut                         controllers.Surveys.fillOut(cid: Long, id: Long)
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /assets/*file                                               controllers.Assets.at(path="/public", file)
